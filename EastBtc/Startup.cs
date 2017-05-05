@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using static Maticsoft.DBUtility.PubConstant;
 
 namespace EastBtc
 {
@@ -24,14 +25,16 @@ namespace EastBtc
 
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // 此方法由运行时调用。使用这种方法将服务添加到容器中。
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
+            // 添加服务框架。
             services.AddMvc();
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+           
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // 此方法由运行时调用。使用这个方法来配置HTTP请求管道。
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
