@@ -51,17 +51,15 @@ namespace Maticsoft.DBUtility
 		#endregion
 		
 		#region ========解密======== 
-   
- 
         /// <summary>
         /// 解密
         /// </summary>
         /// <param name="Text"></param>
         /// <returns></returns>
-		public static string Decrypt(string Text) 
-		{
+        public static string Decrypt(String Text)
+        {
             return Decrypt(Text, "litianping");
-		}
+        }
 		/// <summary> 
 		/// 解密数据 
 		/// </summary> 
@@ -70,7 +68,8 @@ namespace Maticsoft.DBUtility
 		/// <returns></returns> 
 		public static string Decrypt(string Text,string sKey) 
 		{ 
-			DESCryptoServiceProvider des = new DESCryptoServiceProvider(); 
+			
+            DESCryptoServiceProvider des = new DESCryptoServiceProvider();
 			int len; 
 			len=Text.Length/2; 
 			byte[] inputByteArray = new byte[len]; 
